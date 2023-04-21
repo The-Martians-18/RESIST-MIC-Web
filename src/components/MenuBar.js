@@ -1,13 +1,22 @@
 import React from 'react';
 import AppBar from '@mui/material/AppBar';
-import logo from '../assets/resist-l.png';
-import Button from '@mui/material/Button';
-
+import logo from '../assets/resist-no.png';
+import Lottie from "lottie-react";
+import satelliteSignal from "../assets/satelliteNew.json";
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 
+
+
 function MenuBar(){
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    rendererSettings: {
+      preserveAspectRatio: 'xMidYMid slice' // Set the preserveAspectRatio value as per your requirement
+    }
+  };
     return(
         <AppBar
         position="sticky"
@@ -16,12 +25,16 @@ function MenuBar(){
         sx={{ borderBottom: (theme) => `1px solid ${theme.palette.divider}`, background:'#301b70' }}
       >
         <Toolbar sx={{ flexWrap: 'wrap' }}> 
+          <div style={{ width: '65px', height: '65px' }}>
+            <Lottie animationData={satelliteSignal} options={defaultOptions}/>;
+          </div>
+        
           <div style={{ display: 'flex', justifyContent: 'flex-start'}}>
             <a href="/">
               <img
                   src={logo} // Replace with the URL or local path of your image
                   alt="Logo" // Add an alt text for accessibility
-                  style={{ width: '150px', height: 'auto' }} // Specify the size and any additional styles for the image
+                  style={{ width: 'auto', height: '35px' }} // Specify the size and any additional styles for the image
               />
             </a>
           </div>
