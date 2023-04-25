@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import Grid from '@mui/material/Grid';
 import { Button, TextField } from "@mui/material";
 
-const ImageIDForm = ()=>{
+const ImageIDForm = (props)=>{
+    const {getResults} = props;
     const [textFieldValue, setTextFieldValue] = useState('');
     const handleTextFieldChange = (event) => {
         setTextFieldValue(event.target.value);
     };
     const triggerSearch = ()=>{
+        getResults()
         console.log("Searching for ", textFieldValue)
     }
     return(

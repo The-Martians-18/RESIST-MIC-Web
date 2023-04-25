@@ -162,9 +162,12 @@ export default function ImageModal(props) {
                             
                         </div>
                         {isMaskGenerating==true?(         
-                            <div style={{ width: 'auto', height: '200px',display:'flex',alignItems:"center",justifyContent:"center" }}>
-                                <Lottie animationData={animationRobotWork} />;
+                            <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+                                <Lottie style={{ height: '150px' }} animationData={animationRobotWork} />
                             </div>
+                    
+                        
+                        
                         ):(null)}
                         
                 
