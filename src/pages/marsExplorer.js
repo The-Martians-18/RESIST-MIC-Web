@@ -103,10 +103,46 @@ export default function MarsExplorer(){
       }
     };
 
-    const getResults = () => {
+    const getResults = (queryData, queryType) => {
         console.log("getting results");
-        setResults(resultArray);
-        const data = {
+        // setResults(resultArray);
+        const url = "http://127.0.0.1:8000/image/"+queryData
+        if(queryType=='id'){
+          const data = {
+            method: 'GET',
+            url: url,
+            responseType: 'blob',
+        };
+        axios
+            .request(data)
+            .then((response) => {
+                const imageUrl = URL.createObjectURL(response.data);
+                //console.log(response)
+                const detailUrl = "http://127.0.0.1:8000/imagedetails/"+queryData
+                const detailRequest = {
+                  method: 'GET',
+                  url: detailUrl,
+                  
+              };
+                axios
+                  .request(detailRequest)
+                  .then((res) => {
+                    const details = (res.data)
+                    //console.log(details)
+                    setResults([{image:imageUrl,
+                      name:details.title,
+                      id:details.image_id,
+                      latitude:details.latitude,
+                      longitude:details.longitude}]);
+                  });
+                
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+        }
+        else if (queryType=='coordinate'){
+          const data = {
             method: 'GET',
             url: 'http://localhost:3001/filters',
         };
@@ -118,6 +154,9 @@ export default function MarsExplorer(){
             .catch((error) => {
                 console.error(error);
             });
+        }
+
+        
     }
 
     const handleImageLoad = () => {

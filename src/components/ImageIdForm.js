@@ -9,7 +9,7 @@ const ImageIDForm = (props)=>{
         setTextFieldValue(event.target.value);
     };
     const triggerSearch = ()=>{
-        getResults()
+        getResults(textFieldValue,'id')
         console.log("Searching for ", textFieldValue)
     }
     return(
