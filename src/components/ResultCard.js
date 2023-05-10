@@ -17,7 +17,7 @@ const ResultCard = (props)=>{
                     <CardMedia
                     component="img"
                     height="100"
-                    image={immage}
+                    image={image}
                     alt="green iguana"
                     />
                     <CardContent sx={{ background:'#e3e1f7'}}>
@@ -36,7 +36,7 @@ const ResultCard = (props)=>{
                     </CardContent>
                 </CardActionArea>
             </Card>
-            <ImageModal open={open} setOpen={setOpen} name={name} id={id} hirise={immage} longitude={longitude} latitude={latitude}/>
+            <ImageModal open={open} setOpen={setOpen} name={name} id={id} hirise={image} longitude={longitude} latitude={latitude}/>
         </div>
     )
 }

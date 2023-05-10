@@ -9,12 +9,12 @@ import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import Typography from '@mui/material/Typography';
 import { Grid } from '@mui/material';
-
+import axios from 'axios';
 
 import Lottie from "lottie-react";
 //import animationRobotWork from "../assets/animationRobotWork.json";
 import animationRobotWork from "../assets/low-earth.json";
-import mask from '../assets/ESP_072116_1740_RED_mask.png';
+//import mask from '../assets/ESP_072116_1740_RED_mask.png';
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   '& .MuiDialogContent-root': {
@@ -56,6 +56,7 @@ BootstrapDialogTitle.propTypes = {
 
 export default function ImageModal(props) {
   const {open, setOpen, name, id,hirise, longitude, latitude} = props;
+  const [mask, setMask]= React.useState("")
   const [showMask, setShowMask]= React.useState(false)
   const [maskAvailable, setMaskAvailable]= React.useState(false)
   const [isMaskGenerating, setIsMaskGenerating]= React.useState(false)
@@ -67,14 +68,35 @@ export default function ImageModal(props) {
   };
   const generateMask = () => {
     console.log("Generating Mask")
-    
+    const url = "http://127.0.0.1:8000/imageseg/"+id
+    const data = {
+      method: 'GET',
+      url: url,
+      responseType: 'blob',
+    };
+
     setIsMaskGenerating(true)
+
+    axios
+      .request(data)
+      .then((response) => {
+          const imageUrl = URL.createObjectURL(response.data);
+          setMaskAvailable(true);
+          setIsMaskGenerating(false);
+          setShowMask(!showMask)
+          setMask(imageUrl)
+          
+      })
+      .catch((error) => {
+          console.error(error);
+    });
+        
     //delay by 5 seconds
-    setTimeout(() => {
+    /*setTimeout(() => {
         setMaskAvailable(true);
         setIsMaskGenerating(false);
         setShowMask(!showMask)
-      }, 5000);
+      }, 5000);*/
     
   };
   return (
