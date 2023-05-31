@@ -7,7 +7,7 @@ import { Grid } from "@mui/material";
 
 
 const ResultDisplayer = (props) => {
-  const {results} = props
+  const {results,setResults,setModalPending} = props
   // State to keep track of the current page number
   const [currentPage, setCurrentPage] = useState(1);
   
@@ -34,7 +34,7 @@ const ResultDisplayer = (props) => {
       <Grid container direction="row" alignItems="center" justifyContent="center" spacing={10} sx={{ padding: '50px 5% 30px 5%' }}>
         {imagesToDisplay.map((result,index) => (
           <Grid item key={index}> {/* assuming each result item has an unique id */}
-            <ResultCard image={result.image} id={result.id} name={result.name} latitude={result.latitude} longitude={result.longitude} />
+            <ResultCard index={index} image={result.thumbnailLink} id={result.image_id} name={result.title} latitude={result.latitude} longitude={result.longitude} setResults={setResults} results={results} setModalPending={setModalPending}/>
           </Grid>
         ))}
       </Grid>
