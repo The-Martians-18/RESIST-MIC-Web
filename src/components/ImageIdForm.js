@@ -3,14 +3,14 @@ import Grid from '@mui/material/Grid';
 import { Button, TextField } from "@mui/material";
 
 const ImageIDForm = (props)=>{
-    const {getResults} = props;
+    const {getResults, setResultsPending} = props;
     const [textFieldValue, setTextFieldValue] = useState('');
     const handleTextFieldChange = (event) => {
         setTextFieldValue(event.target.value);
     };
     const triggerSearch = ()=>{
+        setResultsPending(true)
         getResults(textFieldValue,'id')
-        console.log("Searching for ", textFieldValue)
     }
     return(
         <div>
@@ -19,7 +19,7 @@ const ImageIDForm = (props)=>{
                     <div style={{color:'white'}}>Enter HiRISE image ID: </div>
                 </Grid>
                 <Grid item xs={5}>
-                <TextField id="outlined-basic" label="Image ID" variant="outlined" color="secondary"  sx={{borderColor:'red','& .MuiInputBase-input': {color: 'white',},'& .MuiOutlinedInput-root': {'& fieldset': {borderColor: 'white',},'&:hover fieldset': {borderColor: 'white',},'&.Mui-focused fieldset': {borderColor: '#f5cedb',},},'& label': {color: 'white',},'& label.Mui-focused': {color: '#f5cedb',},}} size="small" value={textFieldValue} onChange={handleTextFieldChange}/>
+                    <TextField id="outlined-basic" label="Image ID" variant="outlined" color="secondary"  sx={{borderColor:'red','& .MuiInputBase-input': {color: 'white',},'& .MuiOutlinedInput-root': {'& fieldset': {borderColor: 'white',},'&:hover fieldset': {borderColor: 'white',},'&.Mui-focused fieldset': {borderColor: '#f5cedb',},},'& label': {color: 'white',},'& label.Mui-focused': {color: '#f5cedb',},}} size="small" value={textFieldValue} onChange={handleTextFieldChange}/>
                 </Grid>
             </Grid>   
                     

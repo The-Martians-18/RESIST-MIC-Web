@@ -2,7 +2,7 @@ import { Button, Grid, TextField } from "@mui/material";
 import React, { useState } from "react";
 
 const ImageCoordinateForm = (props)=>{
-    const {getResults} = props;
+    const {getResults,setResultsPending} = props;
     const [longitudeStartValue, setLongitudeStartValue] = useState('');
     const [longitudeEndValue, setLongitudeEndValue] = useState('');
 
@@ -24,8 +24,15 @@ const ImageCoordinateForm = (props)=>{
     };
 
     const triggerSearch = ()=>{
-        getResults()
-        console.log("Searching coordinates ", longitudeStartValue,longitudeEndValue,latitudeStartValue,latitudeEndValue)
+        setResultsPending(true)
+        const coordinates = {
+            "latitude_beginning":latitudeStartValue,
+            "latitude_ending":latitudeEndValue,
+            "longitude_beginning":longitudeStartValue,
+            "longitude_ending":longitudeEndValue
+         }
+        
+        getResults(coordinates,"coordinate")
     }
 
     return (

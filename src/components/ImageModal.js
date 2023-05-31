@@ -14,6 +14,7 @@ import axios from 'axios';
 import Lottie from "lottie-react";
 //import animationRobotWork from "../assets/animationRobotWork.json";
 import animationRobotWork from "../assets/low-earth.json";
+import imageProcessing from "../assets/image-scanning.json";
 //import mask from '../assets/ESP_072116_1740_RED_mask.png';
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
@@ -89,14 +90,10 @@ export default function ImageModal(props) {
       })
       .catch((error) => {
           console.error(error);
+          setIsMaskGenerating(false);
     });
         
-    //delay by 5 seconds
-    /*setTimeout(() => {
-        setMaskAvailable(true);
-        setIsMaskGenerating(false);
-        setShowMask(!showMask)
-      }, 5000);*/
+    
     
   };
   return (
@@ -185,7 +182,7 @@ export default function ImageModal(props) {
                         </div>
                         {isMaskGenerating==true?(         
                             <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-                                <Lottie style={{ height: '150px' }} animationData={animationRobotWork} />
+                                <Lottie style={{ height: '150px' }} animationData={imageProcessing} />
                             </div>
                     
                         

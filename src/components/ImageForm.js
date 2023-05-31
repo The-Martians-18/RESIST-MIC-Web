@@ -6,7 +6,7 @@ import ImageCoordinateForm from './ImageCoordinateForm';
 
 
 const ImageForm = (props)=>{
-    const {tabVal, changeTab, getResults} = props
+    const {tabVal, changeTab, getResults, setResultsPending} = props
     return(
         <div style={{ p: 2, border: '2px solid grey', padding: '0px 10px 10px 10px' }}> 
             <div>
@@ -22,7 +22,7 @@ const ImageForm = (props)=>{
                 </Tabs>
             </div>
             <div style={{marginTop:'30px', marginBottom: '20px'}}>
-                {tabVal==0?<ImageIDForm getResults={getResults}/>:<ImageCoordinateForm getResults={getResults}/>}
+                {tabVal==0?<ImageIDForm getResults={getResults} setResultsPending={setResultsPending}/>:<ImageCoordinateForm getResults={getResults} setResultsPending={setResultsPending}/>}
             </div>
         </div>
     )
