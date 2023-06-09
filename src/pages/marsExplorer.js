@@ -89,8 +89,6 @@ export default function MarsExplorer(){
                 console.error(error);
             });
         }
-
-        
     }
 
     const handleImageLoad = () => {

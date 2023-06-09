@@ -7,7 +7,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
-import Typography from '@mui/material/Typography';
+import DownloadForOfflineIcon from '@mui/icons-material/DownloadForOffline';
 import { Grid } from '@mui/material';
 import axios from 'axios';
 
@@ -64,6 +64,20 @@ export default function ImageModal(props) {
   const handleClose = () => {
     setOpen(false);
   };
+  const handleDownload = () => {
+    const link = document.createElement('a');
+    link.href = hirise;
+    link.download = 'HiRISE_image.jpg';
+    link.click();
+  };
+
+  const handleMask = () => {
+    const link = document.createElement('a');
+    link.href = mask;
+    link.download = 'generated_Mask.jpg';
+    link.click();
+  };
+
   const maskHide = () => {
     setShowMask(!showMask)
   };
@@ -86,7 +100,6 @@ export default function ImageModal(props) {
           setIsMaskGenerating(false);
           setShowMask(!showMask)
           setMask(imageUrl)
-          
       })
       .catch((error) => {
           console.error(error);
@@ -179,6 +192,22 @@ export default function ImageModal(props) {
                                 </Button>
                             }
                             
+                        </div>
+                        <div style={{paddingTop:'10px'}}>
+                          <Grid container direction="row" justifyContent="space-between" alignItems="center">
+                            <Grid>
+                              <Button size="small" variant="outlined" startIcon={<DownloadForOfflineIcon />} onClick={handleDownload}>
+                                HiRISE 
+                              </Button>
+                            </Grid>
+
+                            <Grid>
+                              <Button size="small" variant="outlined" startIcon={<DownloadForOfflineIcon />} onClick={handleMask} disabled={showMask==true?false:true}>
+                                Mask 
+                              </Button>
+                            </Grid>
+                              
+                          </Grid>
                         </div>
                         {isMaskGenerating==true?(         
                             <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
