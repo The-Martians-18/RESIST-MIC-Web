@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
-import ImageIDForm from "../components/ImageIdForm";
+import ImageIDForm from "../../components/ImageIdForm";
 
 describe("ImageIDForm", () => {
   it("renders the component correctly", () => {

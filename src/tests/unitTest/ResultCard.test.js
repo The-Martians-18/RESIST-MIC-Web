@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import axios from "axios";
-import ResultCard from "../components/ResultCard";
+import ResultCard from "../../components/ResultCard";
 
 jest.mock("axios", () => ({
     // Mocking the axios module

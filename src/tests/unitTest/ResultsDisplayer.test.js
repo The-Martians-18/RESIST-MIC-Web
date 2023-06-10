@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import ResultDisplayer from "../components/ResultsDisplayer";
+import ResultDisplayer from "../../components/ResultsDisplayer";
 
 jest.mock("axios", () => ({
   // Mocking the axios module

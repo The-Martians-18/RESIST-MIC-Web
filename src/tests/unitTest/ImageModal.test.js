@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import ImageModal from '../components/ImageModal';
+import ImageModal from '../../components/ImageModal';
 jest.mock("axios", () => ({
     // Mocking the axios module
     get: jest.fn(() => Promise.resolve({ data: {} })),

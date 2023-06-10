@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import ImageCoordinateForm from '../components/ImageCoordinateForm';
+import ImageCoordinateForm from '../../components/ImageCoordinateForm';
 
 describe('ImageCoordinateForm', () => {
   test('should render the form correctly', () => {
