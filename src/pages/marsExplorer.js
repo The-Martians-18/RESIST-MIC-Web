@@ -14,7 +14,7 @@ export default function MarsExplorer(){
     const [results, setResults] = useState([]);
     const [resultsPending, setResultsPending] = useState(false);
     const [modalPending, setModalPending] = useState(false);
-    const [imageLoaded, setImageLoaded] = useState(false); // Add state for image loading status
+    const [imageLoaded, setImageLoaded] = useState(true); // Add state for image loading status
 
     const changeTab = (event, newValue) => {
         setTabVal(newValue);
@@ -92,9 +92,7 @@ export default function MarsExplorer(){
     }
 
     const handleImageLoad = () => {
-      setTimeout(() => {
-        setImageLoaded(true);
-      }, 1000);
+      setImageLoaded(true);
         
     }
 

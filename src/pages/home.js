@@ -7,12 +7,10 @@ import Lottie from "lottie-react";
 import satelliteSignal from "../assets/satelliteNew.json";
 
 export default function Home(){
-    const [imageLoaded, setImageLoaded] = useState(false); // Add state for image loading status
+    const [imageLoaded, setImageLoaded] = useState(true); // Add state for image loading status
 
     const handleImageLoad = () => {
-        setTimeout(() => {
-            setImageLoaded(true);
-          }, 1000);
+        setImageLoaded(true);
     }
 
     useEffect(() => {

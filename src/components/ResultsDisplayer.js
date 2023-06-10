@@ -3,9 +3,6 @@ import ResultCard from "./ResultCard";
 import Pagination from '@mui/material/Pagination';
 import { Grid } from "@mui/material";
 
-
-
-
 const ResultDisplayer = (props) => {
   const {results,setResults,setModalPending} = props
   // State to keep track of the current page number
