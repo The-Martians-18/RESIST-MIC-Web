@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import ImageForm from '../components/ImageForm';
+import ImageForm from '../../components/ImageForm';
 
 describe('ImageForm', () => {
     test('renders tabs and content', () => {
@@ -10,7 +10,6 @@ describe('ImageForm', () => {
           getResults: jest.fn(),
           setResultsPending: jest.fn(),
         };
-    
         render(<ImageForm {...props} />);
     
         const singleImageTab = screen.getByRole('tab', { name: /Single image Analysis/i });

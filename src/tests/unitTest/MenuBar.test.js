@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import MenuBar from '../components/MenuBar';
+import MenuBar from '../../components/MenuBar';
 
 jest.mock("lottie-react", () => ({
   __esModule: true,

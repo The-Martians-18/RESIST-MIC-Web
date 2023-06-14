@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import Home from '../pages/home';
+import Home from '../../pages/home';
 
 jest.mock("axios", () => ({
   // Mocking the axios module
