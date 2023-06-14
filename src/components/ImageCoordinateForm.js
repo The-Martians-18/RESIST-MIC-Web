@@ -133,7 +133,7 @@ const ImageCoordinateForm = (props)=>{
                     },
                 }}
                 >
-                <Typography sx={{ p: 1, fontSize: '12px', color: 'white', fontWeight: 500 }}>{longError}</Typography>
+                <Typography role="error-message" sx={{ p: 1, fontSize: '12px', color: 'white', fontWeight: 500 }}>{longError}</Typography>
                 </Popover>
 
             <div  style={{paddingBottom:'20px'}}>
@@ -176,7 +176,7 @@ const ImageCoordinateForm = (props)=>{
                     },
                 }}
                 >
-                <Typography sx={{ p: 1, fontSize: '12px', color: 'white', fontWeight: 500 }}>{latError}</Typography>
+                <Typography role="error-message" sx={{ p: 1, fontSize: '12px', color: 'white', fontWeight: 500 }}>{latError}</Typography>
                 </Popover>
 
             <Grid container direction="column" justifyContent='center' sx={{marginTop:"25px"}}> 

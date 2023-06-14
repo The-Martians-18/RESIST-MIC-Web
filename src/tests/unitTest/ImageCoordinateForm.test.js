@@ -1,5 +1,6 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
+import { getByText } from '@testing-library/react';
 import ImageCoordinateForm from '../../components/ImageCoordinateForm';
 
 describe('ImageCoordinateForm', () => {
@@ -42,4 +43,31 @@ describe('ImageCoordinateForm', () => {
     expect(mockGetResults).toHaveBeenCalled();
     expect(mockSetResultsPending).toHaveBeenCalled();
   });
+
+ 
+
+  /*test("should display error message for invalid latitude range", () => {
+    const setResultsPendingMock = jest.fn();
+    const getResultsMock = jest.fn();
+  
+    render(
+      <ImageCoordinateForm
+        setResultsPending={setResultsPendingMock}
+        getResults={getResultsMock}
+      />
+    );
+  
+    const latitudeStartInput = screen.getByLabelText("Start");
+    const latitudeEndInput = screen.getByLabelText("End");
+    const searchButton = screen.getByRole("button", { name: "Search" });
+  
+    fireEvent.change(latitudeStartInput, { target: { value: "0" } });
+    fireEvent.change(latitudeEndInput, { target: { value: "100" } });
+    fireEvent.click(searchButton);
+  
+    const errorMessage = screen.queryByText(/Invalid latitude range/i);
+    expect(errorMessage).toBeInTheDocument();
+  });*/
+  
+  
 });

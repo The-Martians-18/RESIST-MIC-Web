@@ -14,14 +14,16 @@
     "lottie-react": "^2.4.0",
     "react": "^18.2.0",
     "react-router-dom": "^6.10.0",
-    "react-scripts": "^2.1.3",
+    "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
+  
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "test:CI": "set CI=true &&react-scripts test --env=jsdom --testResultsProcessor=./node_modules/jest-html-reporter"
   },
   "eslintConfig": {
     "extends": [
@@ -43,6 +45,8 @@
   },
   "devDependencies": {
     "@testing-library/react": "^14.0.0",
+    "jest-allure": "^0.1.3",
+    "jest-html-reporter": "^3.10.0",
     "react-dom": "^18.2.0"
   }
 }
